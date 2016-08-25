@@ -5,5 +5,9 @@ get '/' do
 end
 
 post '/crash' do
-  Process.kill 9, Process.pid
+  Process.kill 'KILL', Process.pid
+end
+
+post '/exit' do
+  Process.kill 'INT', Process.pid
 end

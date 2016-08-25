@@ -13,6 +13,19 @@ describe 'Hello World app' do
     end
   end
 
+  describe '/exit' do
+    let(:exit_uri) { URI.parse('http://localhost:8117/exit') }
+
+    it 'exits cleanly' do
+      Thread.new {
+        sleep 1
+        expect{ Net::HTTP.post_form(exit_uri, {}) }.to raise_error(EOFError)
+      }
+      system('rackup -p 8117')
+      expect($?.success?).to be_truthy
+    end
+  end
+
   describe '/crash' do
     let(:get_uri) { URI.parse('http://localhost:8117/') }
     let(:crash_uri) { URI.parse('http://localhost:8117/crash') }
