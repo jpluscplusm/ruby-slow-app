@@ -13,16 +13,6 @@ describe 'Hello World app' do
     end
   end
 
-  describe '/slow' do
-    it 'takes the specified amount of seconds to return a response' do
-      beforeGet = Time.now
-      get '/slow?delay=1'
-      afterGet = Time.now
-      expect(last_response).to be_ok
-      expect(afterGet - beforeGet).to be >= 1
-    end
-  end
-
   describe '/exit' do
     let(:exit_uri) { URI.parse('http://localhost:8117/exit') }
 
