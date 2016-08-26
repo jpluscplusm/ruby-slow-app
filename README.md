@@ -1,9 +1,5 @@
-# ruby-hello-world
+# ruby-slow-app
 
-Simple app for testing that Ruby apps are runnable on Cloud Foundry.
+Simple app for testing against a single-threaded, slow server.
 
-`GET /` returns `Hello, World!\n`
-
-`POST /exits` terminates the process cleanly
-
-`POST /crash` terminates the process with a kill -9
+`GET /slow?delay=5` returns `I slept!` and 200 OK after 5 seconds
