@@ -1,2 +1,2 @@
-threads 0,1
-workers 1
+threads 1,1
+workers 0

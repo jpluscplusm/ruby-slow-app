@@ -24,6 +24,8 @@ describe 'running the app with rackup' do
       expect(response.body).to eq("I slept!")
     end
 
+    sleep 1
+
     beforeGet = Time.now
     response = Net::HTTP.get_response(URI.parse('http://localhost:8117/slow?delay=0'))
     afterGet = Time.now
