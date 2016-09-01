@@ -1,3 +1,3 @@
-require './hello'
+require './slow'
 
 run Sinatra::Application
